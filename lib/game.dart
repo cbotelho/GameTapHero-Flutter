@@ -241,6 +241,18 @@ class _GameState extends State<Game> with WidgetsBindingObserver, TickerProvider
     Share.share("Tap Hero: I survive until ${bosses[bossIndex].name} LV$level! Now is your turn!");
   }
 
+  void switchMusic() {
+    if (!Utils.isDesktop()) {
+      if (musicPlaying && instance != null) {
+        instance.pause();
+        musicPlaying = false;
+      } else {
+        playMusic();
+        musicPlaying = true;
+      }
+    }
+  }
+
   Widget gameEngine(BuildContext context) {
     return width(context) >= 700
         ? Row(
@@ -396,6 +408,46 @@ class _GameState extends State<Game> with WidgetsBindingObserver, TickerProvider
             _gamepadConnected
                 ? Container()
                 : hitBox(),
+            SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+                child: Row(
+                  children: <Widget>[
+                    FancyButton(
+                      child: Text(
+                        "X",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontFamily: 'Gameplay',
+                        ),
+                      ),
+                      size: 25,
+                      color: Color(0xFFCA3034),
+                      onPressed: () {
+                        Navigator.of(context).pushReplacement(InitRoute(Welcome()));
+                      },
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(left: 10),
+                      child: FancyButton(
+                        child: Icon(
+                          Icons.music_note,
+                          size: 20,
+                          color: musicPlaying ? Colors.white : Colors.black54,
+                        ),
+                        size: 25,
+                        color: Color(0xFF67AC5B),
+                        onPressed: () {
+                          switchMusic();
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
           ],
         ),
       ),

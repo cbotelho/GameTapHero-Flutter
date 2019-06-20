@@ -172,7 +172,7 @@ class _WelcomeState extends State<Welcome> with WidgetsBindingObserver, TickerPr
           var pair = Utils.mapToPair(Map<int, bool>.from(call.arguments));
           setState(() {
             if (pair.value) {
-              switch(GamePad.switchMap[pair.key]) {
+              switch (GamePad.switchMap[pair.key]) {
                 case "A":
                   initGame();
                   break;
@@ -183,13 +183,25 @@ class _WelcomeState extends State<Welcome> with WidgetsBindingObserver, TickerPr
       }
     });
   }
-  
+
   void hideController() {
     Future.delayed(const Duration(seconds: 3), () {
       setState(() {
         _gamepadXAxis = 250.0;
       });
     });
+  }
+
+  void switchMusic() {
+    if (!Utils.isDesktop()) {
+      if (musicPlaying && instance != null) {
+        instance.pause();
+        musicPlaying = false;
+      } else {
+        playMusic();
+        musicPlaying = true;
+      }
+    }
   }
 
   @override
@@ -304,6 +316,23 @@ class _WelcomeState extends State<Welcome> with WidgetsBindingObserver, TickerPr
               ),
             ),
           ),
+          SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 20, horizontal: 15),
+              child: FancyButton(
+                child: Icon(
+                  Icons.music_note,
+                  size: 20,
+                  color: musicPlaying ? Colors.white : Colors.black54,
+                ),
+                size: 25,
+                color: Color(0xFF67AC5B),
+                onPressed: () {
+                  switchMusic();
+                },
+              ),
+            ),
+          ),
           Align(
             alignment: Alignment.bottomRight,
             child: AnimatedContainer(
@@ -328,10 +357,7 @@ class _WelcomeState extends State<Welcome> with WidgetsBindingObserver, TickerPr
                         color: Colors.transparent,
                         child: Text(
                           _gamepadName,
-                          style: TextStyle(
-                            fontSize: 12,
-                            fontFamily: "Gameplay"
-                          ),
+                          style: TextStyle(fontSize: 12, fontFamily: "Gameplay"),
                         ),
                       ),
                     )
