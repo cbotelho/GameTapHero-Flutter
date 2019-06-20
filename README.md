@@ -38,7 +38,7 @@ _______________
 ## LINK: https://gametaphero.web.app/#/download
 _______________
 
-# Try it now 🎮 🌎
+# Try it now 🌎 🎮
 _______________
 
 ## LINK: https://gametaphero.web.app 
