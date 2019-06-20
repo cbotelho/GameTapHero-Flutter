@@ -32,6 +32,12 @@ _______________
     - Command (terminal): flutter run -d macOS (for example | macOS is your desktop ID from "flutter devices")
     - Using IntelliJ / Android Studio: Select macOS (or your OS) > Run
 
+# Features & Improvements 👷‍♂️ 👷‍♀️ 🎮
+_______________
+
+  - Create a PR for new Features / Improvements
+  - Create a Ticket for highlight Issues / Bugs
+
 # Download binaries 🗄 🎮
 _______________
 
@@ -42,3 +48,10 @@ _______________
 _______________
 
 ## LINK: https://gametaphero.web.app 
+
+# Contact Links 🔗 🎮
+_______________
+
+## Twitter [GeekMZ](https://www.twitter.com/geekmz)
+## Medium [@MkiiSoft](https://medium.com/@mkiisoft)
+## Medium Post [From Zero to a Multiplatform Flutter Game in a week](https://medium.com/flutter-community/from-zero-to-a-multiplatform-flutter-game-in-a-week-8245da931c7e)
