@@ -6,6 +6,6 @@ TapHero is a casual tapping arcade game
 
 TapHero was developer entirely with Flutter without engines.
 
-https://i.imgur.com/s5BzXxI.jpg
+[![TapHero](https://i.imgur.com/s5BzXxI.jpg)](https://github.com/mkiisoft/taphero "TapHero")
 
-https://gametaphero.web.app
+Try it now: https://gametaphero.web.app 🎉🌎
